@@ -7,6 +7,8 @@ import WebClassify from '@/components/web/classify'
 import WebManage from '@/components/web/manage'
 
 import Console from '@/components/console'
+import Login from '@/components/Login'
+import Home from '@/components/Home'
 import ConsoleAbout from '@/components/console/about'
 import ConsoleDetail from '@/components/console/detail/index'
 import ConsoleDetailOne from '@/components/console/detail/one'
@@ -18,11 +20,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: { path: '/web' }
+      component: Home
     },
     {
-      path: '*',
-      component: NotFound
+      path: '/login',
+      component: Login
     },
     {
       path: '/web',
@@ -77,6 +79,10 @@ export default new Router({
           ]
         }
       ]
-    }
+    },
+    {
+      path: '*',
+      component: NotFound
+    },
   ]
 })
