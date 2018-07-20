@@ -20,11 +20,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Home
+      component: Home,
+      name: 'home',
+      meta: { title: '首页' }
     },
     {
       path: '/login',
-      component: Login
+      component: Login,
+      name: 'login',
+      meta: { title: '登录'}
     },
     {
       path: '/web',

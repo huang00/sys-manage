@@ -15,9 +15,7 @@ var wsCache = new WebStorageCache();
 export default {
   methods: {
     login() {
-      alert('登录成功');
-      wsCache.set('isLogin', true, {exp : 60 * 10});
-      this.setLogin();
+      this.$router.push( {name: 'home'} )
     },
     ...mapMutations(['setLogin'])
   }

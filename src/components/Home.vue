@@ -1,14 +1,26 @@
 <template>
   <el-container>
-    <el-header height="100px">
+    <el-header>
       <app-header></app-header>
     </el-header>
-    <router-view/>
+    <el-container>
+      <el-aside width="200px">
+        <app-menu></app-menu>
+      </el-aside>
+      <el-container>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
   </el-container>
 </template>
 
 <script>
 import AppHeader from '@/components/public/Header'
+import AppMenu from '@/components/public/Menu'
+import AppFooter from '@/components/public/Footer'
 
 export default {
   data() {
@@ -17,7 +29,9 @@ export default {
     }
   },
   components: {
-    AppHeader
+    AppHeader,
+    AppMenu,
+    AppFooter
   }
 }
 </script>
