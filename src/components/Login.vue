@@ -30,10 +30,9 @@
 </template>
 
 <script>
-// import { mapMutations } from 'vuex'
 import WebStorageCache from 'web-storage-cache'
 
-var wsCache = new WebStorageCache();
+const wsCache = new WebStorageCache();
 export default {
   name: 'login',
   data() {
@@ -63,6 +62,7 @@ export default {
         if (valid) {
           this.wait = true;
           setTimeout(() => {
+            wsCache.set('userName', this.formLogin.userName);
             this.wait = false;
             this.$router.push( {name: 'home'} )
           }, 2000)
@@ -77,6 +77,8 @@ export default {
       let el = event.path[1].getElementsByClassName('el-input__prefix')[0];
       el.style.color = 'blue';
     }
+  },
+  created() {
   }
 }
 </script>
@@ -90,7 +92,7 @@ export default {
       background-color: white;
       width: 400px;
       margin: 0 auto;
-      margin-top: 15%;
+      margin-top: 20vh;
       border: 1px solid;
       border-radius: 5px;
       padding: 30px;

@@ -2,3 +2,11 @@
 html, body, #app { height: 100%; }
 a { text-decoration: none; }
 li { list-style: none; }
+.clearfix:after {
+    content: '.';
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    display: block;
+}
+.clearfix { zoom: 1; }

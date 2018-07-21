@@ -35,35 +35,35 @@ export const routerApp = {
         path: 'web',
         component: Web,
         meta: {title: '网站'},
-        children: [
-            { path: '/', redirect: {name: 'classify'} },
-            {
-            path: 'classify',
-            name: 'classify',
-            component: WebClassify,
-            meta: { title: '文章分类' }
-            },
-            {
-            path: 'manage',
-            name: 'manage',
-            component: WebManage,
-            meta: { title: '文章管理' }
-            }
-        ]
+            children: [
+                { path: '/', redirect: { name: 'classify' } },
+                {
+                    path: 'classify',
+                    name: 'classify',
+                    component: WebClassify,
+                    meta: { title: '文章分类' }
+                },
+                {
+                    path: 'manage',
+                    name: 'manage',
+                    component: WebManage,
+                    meta: { title: '文章管理' }
+                }
+            ]
         },
         {
-        path: 'console',
-        component: Console,
-        meta: { title: '控制台'},
-        children: [
-            { path: '/', redirect: {name: 'about'} },
-            {
-            path: 'about',
-            component: ConsoleAbout,
-            name: 'about',
-            meta: { title: '关于' }
-            },
-        ]
+            path: 'console',
+            component: Console,
+            meta: { title: '控制台' },
+            children: [
+                { path: '/', redirect: { name: 'about' } },
+                {
+                    path: 'about',
+                    component: ConsoleAbout,
+                    name: 'about',
+                    meta: { title: '关于' }
+                },
+            ]
         }
     ]
 }

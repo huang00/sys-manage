@@ -3,6 +3,9 @@ import Router from 'vue-router'
 
 import Util from '../libs/util'
 import { routers } from './router'
+import WebStorageCache from 'web-storage-cache'
+
+const wsCache = new WebStorageCache();
 Vue.use(Router)
 
 const router =  new Router({
@@ -10,8 +13,16 @@ const router =  new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  Util.title(to.meta.title, router.app)
-  next()
+  Util.title(to.meta.title, router.app);
+  if (!wsCache.get('userName') && to.name !== 'login') {
+    next({name: 'login' })
+  } else if (wsCache.get('userName') && to.name === 'login') {
+    Util.title(to.meta.title, router.app);
+    next({name: 'home'})
+  } else {
+    next()
+  }
+  
 })
 
 export default router;

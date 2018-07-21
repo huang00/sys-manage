@@ -30,7 +30,7 @@ export default {
       this.$router.push('/web');
     },
     back() {
-      wsCache.delete('isLogin');
+      wsCache.delete('userName');
       location.reload();
     },
     navPath() {
