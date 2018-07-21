@@ -5,5 +5,4 @@
 </template>
 
 <style lang="scss" scoped>
-  footer { background-color: green; }
 </style>

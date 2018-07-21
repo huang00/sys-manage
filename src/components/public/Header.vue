@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
       <section class="logo"></section>
       <section class="navigation">
         <ul class="nav">
@@ -10,10 +10,9 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
           <span style="float: left;">当前位置：</span>
           <el-breadcrumb-item v-for="(item, index) in breadList" :key="index">{{ item }}</el-breadcrumb-item>
-          <!-- <el-breadcrumb-item :to="{ path: '/console' }">控制台</el-breadcrumb-item>-->
         </el-breadcrumb>
       </section>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -53,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
   .header {
     height: 100%;
     .logo {
@@ -73,8 +72,8 @@ export default {
         }
       }
       .el-breadcrumb {
-        border-top: 1px solid red;
         line-height: 39px;
+        background-color: olive;
       }
     }
     .router-link-active { color: red; }

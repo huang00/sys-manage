@@ -1,26 +1,39 @@
 <template>
-    <el-menu 
-      :default-active="defaultActive" 
-      :router= 'true'
+    <el-menu
+      default-active="2"
+      class="menu"
+      @open="handleOpen"
+      router
+      @close="handleClose"
       background-color="#545c64"
-      class="app-menu" 
-      @open="handleOpen" 
-      @close="handleClose">
-        <template v-for="item in list">
-          <el-submenu v-if="item.child" :index="item.id" :key="item.id">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">{{ item.name }}</span>
-              </template>
-              <el-menu-item v-for="(subItem, index) in item.child" :index="subItem.path" :key="index">
-                {{subItem.name}}
-              </el-menu-item>
-          </el-submenu>
-          <el-menu-item v-else :index="item.path" :key="item.id">
-              <i :class="item.icon"></i>
-              <span slot="title">{{ item.name }}</span>
-          </el-menu-item>
+      text-color="#fff"
+      active-text-color="#ffd04b">
+      <el-submenu index="1">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>网站</span>
         </template>
+        <el-menu-item-group>
+          <!-- <template slot="title">分组一</template> -->
+          <el-menu-item index="/web/classify">文章分类</el-menu-item>
+          <el-menu-item index="/web/manage">文章管理</el-menu-item>
+        </el-menu-item-group>
+        
+      </el-submenu>
+
+      <el-submenu index="2">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <span>控制台</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/console/about">关于</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="1-4-1">选项1</el-menu-item>
+        </el-submenu>
+      </el-submenu>
     </el-menu>
 </template>
 
@@ -50,11 +63,6 @@
       this.list = menuList(this.menuName);
       this.navPath();
     },
-    watch: {
-      $route(to, form) {
-        this.navPath();
-      }
-    }
   }
   function menuList(name) {
     var list = {
@@ -105,10 +113,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .app-menu {
-    min-height: calc(100vh - 100px);
-    width: 200px;
-    border: 0;
+  .menu {
+    li { width: 200px; }
   }
-  
 </style>

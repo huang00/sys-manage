@@ -22,7 +22,45 @@ export default new Router({
       path: '/',
       component: Home,
       name: 'home',
-      meta: { title: '首页' }
+      meta: { title: '首页' },
+      children: [
+        {
+          path: 'web',
+          component: Web,
+          name: 'web',
+          meta: {title: '网站'},
+          children: [
+            { path: '/', redirect: {name: 'classify'} },
+            {
+              path: 'classify',
+              name: 'classify',
+              component: WebClassify,
+              meta: { title: '文章分类' }
+            },
+            {
+              path: 'manage',
+              name: 'manage',
+              component: WebManage,
+              meta: { title: '文章管理' }
+            }
+          ]
+        },
+        {
+          path: 'console',
+          component: Console,
+          name: 'console',
+          meta: { title: '控制台'},
+          children: [
+            { path: '/', redirect: {name: 'about'} },
+            {
+              path: 'about',
+              component: ConsoleAbout,
+              name: 'about',
+              meta: { title: '关于' }
+            },
+          ]
+        }
+      ]
     },
     {
       path: '/login',
@@ -30,60 +68,62 @@ export default new Router({
       name: 'login',
       meta: { title: '登录'}
     },
-    {
-      path: '/web',
-      component: Web,
-      meta: {title: '网站'},
-      children: [
-        { path: '/', redirect: {name: 'classify'} },
-        {
-          path: 'classify',
-          name: 'classify',
-          component: WebClassify,
-          meta: { title: '文章分类' }
-        },
-        {
-          path: 'manage',
-          name: 'manage',
-          component: WebManage,
-          meta: { title: '文章管理' }
-        }
-      ]
-    },
-    {
-      path: '/console',
-      component: Console,
-      meta: { title: '控制台'},
-      children: [
-        { path: '/', redirect: 'about' },
-        {
-          path: 'about',
-          component: ConsoleAbout,
-          name: 'about',
-          meta: { title: '关于' }
-        },
-        {
-          path: 'detail',
-          component: ConsoleDetail,
-          meta: { title: '详情' },
-          children: [
-            { path: '/', redirect: { name: 'one' } },
-            {
-              path: 'one',
-              name: 'one',
-              component: ConsoleDetailOne,
-              meta: { title: '模块一' }
-            },
-            {
-              path: 'two',
-              name: 'two',
-              component: ConsoleDetailTwo,
-              meta: { title: '模块二' }
-            }
-          ]
-        }
-      ]
-    },
+    // {
+    //   path: '/web',
+    //   component: Web,
+    //   name: 'web',
+    //   meta: {title: '网站'},
+    //   children: [
+    //     // { path: '/', redirect: {name: 'classify'} },
+    //     {
+    //       path: 'classify',
+    //       name: 'classify',
+    //       component: WebClassify,
+    //       meta: { title: '文章分类' }
+    //     },
+    //     {
+    //       path: 'manage',
+    //       name: 'manage',
+    //       component: WebManage,
+    //       meta: { title: '文章管理' }
+    //     }
+    //   ]
+    // },
+    // {
+    //   path: '/console',
+    //   component: Console,
+    //   name: 'console',
+    //   meta: { title: '控制台'},
+    //   children: [
+    //     // { path: '/', redirect: 'about' },
+    //     {
+    //       path: 'about',
+    //       component: ConsoleAbout,
+    //       name: 'about',
+    //       meta: { title: '关于' }
+    //     },
+    //     {
+    //       path: 'detail',
+    //       component: ConsoleDetail,
+    //       meta: { title: '详情' },
+    //       children: [
+    //         { path: '/', redirect: { name: 'one' } },
+    //         {
+    //           path: 'one',
+    //           name: 'one',
+    //           component: ConsoleDetailOne,
+    //           meta: { title: '模块一' }
+    //         },
+    //         {
+    //           path: 'two',
+    //           name: 'two',
+    //           component: ConsoleDetailTwo,
+    //           meta: { title: '模块二' }
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // },
     {
       path: '*',
       component: NotFound

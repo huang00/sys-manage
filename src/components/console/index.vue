@@ -1,21 +1,14 @@
 <template>
-    <el-container>
-        <el-aside width="200px">
-          <app-menu :menuName = '"console"'></app-menu>
-        </el-aside>
-        <el-main>
-          <router-view/>
-        </el-main>
-    </el-container>
+    <div>
+        <h1>CONSOLE</h1>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import AppMenu from '@/components/public/Menu'
 
 export default {
-    components: {
-        AppMenu
-    },
+    name: 'console',
     created() {}
 }
 </script>

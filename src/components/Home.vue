@@ -11,7 +11,9 @@
         <el-main>
           <router-view></router-view>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer>
+          <app-footer></app-footer>
+        </el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -23,11 +25,6 @@ import AppMenu from '@/components/public/Menu'
 import AppFooter from '@/components/public/Footer'
 
 export default {
-  data() {
-    return {
-      
-    }
-  },
   components: {
     AppHeader,
     AppMenu,
@@ -37,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .el-header {
+  .el-header, .el-footer {
     padding: 0;
   }
 
@@ -46,30 +43,20 @@ export default {
     text-align: center;
     line-height: 60px;
   }
-  
-  .el-aside {
-    text-align: center;
-    line-height: 200px;
-  }
+
+  .el-footer { background: green; }
   
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
+    margin-top: 40px;
   }
   
-  #app > .el-container {
-    .el-container {
-      min-height: calc(100vh - 100px);
-    }
+  #app > .el-container > .el-container{
+    min-height: calc(100vh - 60px);
   }
   
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-  
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
+  .el-aside {
+    .el-menu { height: 100%; width: 200px; }
   }
 </style>

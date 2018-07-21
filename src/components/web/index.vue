@@ -1,21 +1,13 @@
 <template>
-    <el-container>
-        <el-aside width="200px">
-          <app-menu :menuName = '"web"'></app-menu>
-        </el-aside>
-        <el-main>
-          <router-view/>
-        </el-main>
-    </el-container>
+    <div>
+        <h1>WEB</h1>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import AppMenu from '@/components/public/Menu'
 
 export default {
-    components: {
-        AppMenu
-    },
-    created() {}
+    name: 'web'
 }
 </script>
