@@ -222,8 +222,8 @@ export default {
     }
   },
   created() {
-    this.getNewest();
-    this.getRecent();
+    // this.getNewest();
+    // this.getRecent();
     /* setInterval(() => {
       this.getDate();
     }, 18000000) */
