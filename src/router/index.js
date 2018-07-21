@@ -15,9 +15,10 @@ const router =  new Router({
 router.beforeEach((to, from, next) => {
   Util.title(to.meta.title, router.app);
   if (!wsCache.get('userName') && to.name !== 'login') {
+    Util.title('登录', router.app);
     next({name: 'login' })
   } else if (wsCache.get('userName') && to.name === 'login') {
-    Util.title(to.meta.title, router.app);
+    Util.title();
     next({name: 'home'})
   } else {
     next()

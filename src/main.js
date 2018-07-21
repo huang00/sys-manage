@@ -10,8 +10,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/scss/font-awesome.scss'
 import '@/common/common.scss'
-import webStorageCache from 'web-storage-cache'
-var wsCache = new webStorageCache();
 
 axios.defaults.baseURL = 'api/'
 axios.defaults.timeout = 3600000;
