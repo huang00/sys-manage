@@ -4,19 +4,19 @@
       <el-form-item label="用户名: " prop="userName">
         <el-input 
           placeholder="请输入用户名"
-          prefix-icon="el-icon-warning"
           @focus="handlerFocus"
           v-model="formLogin.userName">
+          <i slot="prefix" class="fa fa-user"></i>
         </el-input>
       </el-form-item>
       <el-form-item label="密  码:" prop="password">
         <el-input 
         placeholder="请输入密码"
-        prefix-icon="el-icon-info"
         type="password"
         @focus="handlerFocus"
         @keyup.enter.native="submitForm('formLogin')"
         v-model="formLogin.password">
+        <i slot="prefix" class="fa fa-unlock-alt"></i>
         </el-input>
       </el-form-item>
       <el-form-item class="errinfo" >
@@ -94,6 +94,9 @@ export default {
       border: 1px solid;
       border-radius: 5px;
       padding: 30px;
+      .el-input--prefix {
+        .el-input__prefix { i {  font-size: 19px; margin-left: 5px; }}
+      }
     }
     .submit { text-align: center; }
     .errinfo { color: red; height: 40px; }
