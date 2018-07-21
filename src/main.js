@@ -16,14 +16,9 @@ var wsCache = new webStorageCache();
 axios.defaults.baseURL = 'api/'
 axios.defaults.timeout = 3600000;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true;
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI)
-
-router.beforeEach((to, from, next) => {
-  // wsCache.set('isLogin', true, {exp : 60 * 10});
-  next();
-})
 
 /* eslint-disable no-new */
 new Vue({

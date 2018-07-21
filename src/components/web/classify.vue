@@ -234,9 +234,9 @@ export default {
 <style lang="scss" scoped>
   .award-box {
     border: 1px solid red;
-    .award-list {
+    // .award-list {
       
-    }
+    // }
   }
   .recent-box {
     margin-top: 20px;
