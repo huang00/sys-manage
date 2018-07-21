@@ -5,6 +5,7 @@
         <el-input 
           placeholder="请输入用户名"
           prefix-icon="el-icon-warning"
+          @focus="handlerFocus"
           v-model="formLogin.userName">
         </el-input>
       </el-form-item>
@@ -13,6 +14,7 @@
         placeholder="请输入密码"
         prefix-icon="el-icon-info"
         type="password"
+        @focus="handlerFocus"
         @keyup.enter.native="submitForm('formLogin')"
         v-model="formLogin.password">
         </el-input>
@@ -28,7 +30,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+// import { mapMutations } from 'vuex'
 import WebStorageCache from 'web-storage-cache'
 
 var wsCache = new WebStorageCache();
@@ -71,7 +73,10 @@ export default {
         }
       });
     },
-    ...mapMutations(['setLogin'])
+    handlerFocus(event) {
+      let el = event.path[1].getElementsByClassName('el-input__prefix')[0];
+      el.style.color = 'blue';
+    }
   }
 }
 </script>
